@@ -1,0 +1,240 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* 모든 요소 초기화 */
+li, a{
+    text-decoration: none;
+    color: #7d7d7d;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 60px;
+    padding: 30px;
+}
+.logo{
+    color: #000;
+    cursor: pointer;
+}
+header .header-left ul {
+    display: flex;
+}
+.nav_links{
+    list-style: none;
+}
+.nav_links li{
+    display: inline-block;
+    padding: 0 20px;
+}
+/* 상단바 카테고리에 마우스를 올리면 버튼 색상 변경에 대한 설정 */
+.nav_links li a{
+    transition: all 0.3s ease 0s;
+}
+/* 상단바 카테고리를 클릭하면 버튼 색상과 글자 색상이 변경 */
+.nav_links li a:hover{
+    color: #eee;
+    border-radius: 50px;
+    padding: 15px;
+    background-color: rgba(0, 136, 169, 0.8);
+}
+.icon-wrap{
+    display: flex;
+    list-style: none;
+}
+/* 아이콘들 배치, border-radius:50%로 원형으로, transtition으로 애니메이션*/
+.icon-wrap .icon {
+    position: relative;
+    border-radius: 50%;
+    padding: 15px;
+    margin: 10px;
+    width: 50px;
+    height: 50px;
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.12s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+/* tooltip들 opacity로 불투명도 설정, pointer-events 설정 없음, transtition으로 애니메이션*/
+.icon-wrap .tooltip {
+    position: absolute;
+    top: 0;
+    font-size: 10px;
+    background: #000;
+    color: #000;
+    padding: 5px 8px;
+    border-radius: 5px;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+/* tooltip 박스화살표 설정 없는 게 좋아보임 */
+/* .icon-wrap .tooltip::before {
+    position: absolute;
+    content: "";
+    height: 8px;
+    width: 8px;
+    background: #ffffff;
+    bottom: -3px;
+    left: 50%;
+    transform: translate(-50%) rotate(45deg);
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+} */
+.icon-wrap .icon:hover .tooltip {
+    top: -30px;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+.icon-wrap .icon:hover span, .icon-wrap .icon:hover .tooltip {
+    text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
+}
+/* 구글 색 */
+.icon-wrap .google:hover, .icon-wrap .google:hover .tooltip, .icon-wrap .google:hover .tooltip::before {
+    background: conic-gradient( #EA4335, #4285F4, #34A853, #FBBC05, #EA4335);
+    color: #ffffff;
+}
+/* 인스타 색 */
+.icon-wrap .instagram:hover, .icon-wrap .instagram:hover .tooltip, .icon-wrap .instagram:hover .tooltip::before {
+    background: #E4405F;
+    color: #ffffff;
+}
+/* 깃허브 색 */
+.icon-wrap .github:hover, .icon-wrap .github:hover .tooltip, .icon-wrap .github:hover .tooltip::before {
+    background: #333333;
+    color: #ffffff;
+}
+/* header설정 */
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 1200px;
+    margin: 0 auto;
+}
+
+section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, auto);
+    gap: 70px;
+    text-align: center;
+}
+section a{
+    text-decoration: none;
+    color: inherit;
+}
+/* 포트폴리오 개인 카드 설정 */
+.card {
+    width: 300px;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    text-align: center;
+    overflow: hidden;
+    border: 1px solid #cfcfcf;
+}
+/* img 박스 설정 */
+.image-container {
+    width: 100%;
+    height: 280px;
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
+    overflow: hidden;
+}
+/* img설정 */
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(1); 
+    transition: transform 750ms ease-out, filter 250ms ease-in-out;
+}
+.card:hover img {
+    transform: scale(1.05);
+    filter: grayscale(0);
+}
+.card.blur {
+    filter: blur(3px);
+}
+
+.card:hover {
+    filter: blur(0);
+}
+
+/* .card:hover ~ .card .image-container img {
+    filter: blur(5px);
+} */
+
+/* .image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(1);
+    transition:
+    scale 750ms ease-out, filter 250ms ease-in-out;
+}
+/* img:hover시 설정 */
+.image-container img:hover {
+    scale: 1.05;
+    filter: grayscale(0);
+} */
+.content {
+    padding: 24px 16px;
+}
+.profile-name {
+    font-size: 26px;
+    font-weight: 900;
+    margin-bottom: 4px;
+}
+.job-title {
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #ceac23;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+.description {
+    font-size: 16px;
+    letter-spacing: 1px;
+    color: #9e9e9e;
+    margin-bottom: 20px;
+}
+.social-links {
+    width: 100%;
+    display: flex;
+    height: 65px;
+    border-top: 1px solid #cfcfcf;
+}
+
+.social-links > a {
+    font-size: 20px;
+    padding-block: 20px;
+    flex: 1;
+}
+.social-links > a:not(:last-child) {
+    border-right: 1px solid #cfcfcf;
+}
+.social-links > .google:hover {
+    background: conic-gradient( #EA4335, #4285F4, #34A853, #FBBC05, #EA4335);
+}
+.social-links > .instagram:hover {
+    background: #ee5487;
+}
+.social-links > .github:hover {
+    background: #333333;
+}
+.social-links > a:hover >i {
+    color: white;
+}
+
